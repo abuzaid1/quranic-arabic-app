@@ -1,0 +1,6 @@
+{
+  "name": "Thoufeek Quranic Arabic Master",
+  "description": "Comprehensive Quranic Arabic learning academy built specifically for Thoufeek to master reading, Tajweed, 80% Quranic vocabulary, grammar, and Quran comprehension.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
