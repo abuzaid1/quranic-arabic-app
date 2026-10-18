@@ -21,15 +21,12 @@ jobs:
       - name: Build Web Production Assets
         run: npm run build
 
-      - name: Setup and Sync Capacitor iOS
-        run: |
-          npx cap add ios || true
-          npx cap sync ios
-          cd ios/App && pod install
+      - name: Sync Capacitor iOS
+        run: npx cap sync ios
 
       - name: Build iOS Application (Simulator / Unsigned Binary)
         run: |
-          xcodebuild -workspace ios/App/App.xcworkspace \
+          xcodebuild -project ios/App/App.xcodeproj \
                      -scheme App \
                      -configuration Release \
                      -sdk iphonesimulator \
