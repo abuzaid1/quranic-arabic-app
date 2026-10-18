@@ -2,13 +2,14 @@
 <img width="1200" height="475" alt="GHBanner" src="https://awkafonline.gov.eg/web/image/blog.post/3266/image_content_thumbnail" />
 </div>
 
-# Run and deploy your AI Studio app
+# Quranic Arabic Cross-Platform Application
 
-This contains everything you need to run your app locally.
+A cross-platform mobile application built with Capacitor, TypeScript, and native CI/CD workflows for Android and iOS deployment. Designed to facilitate Quranic Arabic learning through structured digital modules.
 
-View your app in AI Studio: https://ai.studio/apps/d8292cd0-8e1e-43dd-8e54-5aa7933e31c2
-
-## Run Locally
+## Repository Features
+* **Android Workflow**: Automated cloud compilation for `app-debug.apk` binaries.
+* **iOS Workflow**: Automated cloud compilation for `.ipa` device bundles.
+* **Architecture**: Powered by web-to-native bindings with localized runtime support.
 
 **Prerequisites:**  Node.js
 
