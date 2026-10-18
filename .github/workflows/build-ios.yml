@@ -1,4 +1,4 @@
-name: Build iOS App
+name: Build iOS IPA
 
 on:
   workflow_dispatch:
@@ -24,22 +24,25 @@ jobs:
       - name: Sync Capacitor iOS
         run: npx cap sync ios
 
-      - name: Build iOS Application (Simulator / Unsigned Binary)
+      - name: Build iOS Application for Real Device (Unsigned)
         run: |
           xcodebuild -project ios/App/App.xcodeproj \
                      -scheme App \
                      -configuration Release \
-                     -sdk iphonesimulator \
+                     -sdk iphoneos \
                      -derivedDataPath build \
                      CODE_SIGNING_ALLOWED=NO
 
-      - name: Package App Bundle
+      - name: Package IPA Archive
         run: |
+          mkdir -p Payload
+          cp -R build/Build/Products/Release-iphoneos/App.app Payload/
+          zip -r App.ipa Payload
           mkdir -p build/Artifacts
-          cp -R build/Build/Products/Release-iphonesimulator/App.app build/Artifacts/
+          mv App.ipa build/Artifacts/
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ios-app-bundle
-          path: build/Artifacts/App.app
+          name: ios-ipa-bundle
+          path: build/Artifacts/App.ipa
