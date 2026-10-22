@@ -37,7 +37,8 @@ jobs:
         run: |
           mkdir -p Payload
           cp -R build/Build/Products/Release-iphoneos/App.app Payload/
-          zip -r App.ipa Payload
+          find Payload -name ".DS_Store" -delete
+          zip -qr App.ipa Payload
           mkdir -p build/Artifacts
           mv App.ipa build/Artifacts/
 
